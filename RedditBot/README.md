@@ -3,10 +3,15 @@
 # Introduction #
 
 Build a Reddit Bot that will monitor certain subreddits and then pass those post to Blue Prism to work and send to get sentiment analysis. 
-Guides
+
+# Guides #
+
 https://levelup.gitconnected.com/creating-a-reddit-bot-using-python-5464d4a5dff2
+
 https://chatbots.studio/blog/how-to-make-a-reddit-bot-with-python/ (optional)
+
 https://code.visualstudio.com/docs/python/python-tutorial
+
 
 # Setup #
 	Reddit 
