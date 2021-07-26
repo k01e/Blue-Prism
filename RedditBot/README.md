@@ -16,7 +16,8 @@ https://code.visualstudio.com/docs/python/python-tutorial
 # Setup #
 **Reddit**
 
-Create or use existing Reddit User Acct. 
+- Create or use existing Reddit User Acct. 
+- Go to this URL https://www.reddit.com/prefs/apps/ and select Create App.
 	
 **Python**
 
