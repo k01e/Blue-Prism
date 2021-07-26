@@ -1,4 +1,4 @@
-' This is an update to the GetBody action to the stock actions "Utility - JSON"
+' This is an update to the GetBody action to the stock actions "MS Word VBO"
 ' Instead of specifiying the finish range you can choose "0" and it'll grab the end of the range (Range.End)
 
 ' Inputs: handle / number, documentname / text, start / number, finish / number
