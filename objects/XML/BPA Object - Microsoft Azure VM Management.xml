@@ -1,0 +1,1276 @@
+﻿<process name="Microsoft Azure VM Management" version="1.0" bpversion="6.8.0.23415" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="ffdcd88c-056e-44fc-9cc9-41734e610afa">
+  <appdef>
+    <element name="Application Root">
+      <id>347f6831-08a1-4638-b750-a43b56ae7c2e</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="df0ac084-ec13-44e2-bc78-171632e0c6c0" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="ab13e174-b5c5-4084-9ae4-69cf92f2d2e9" type="Normal" published="False">
+    <name>Get Azure Auth Token</name>
+    <view>
+      <camerax>-63</camerax>
+      <cameray>113</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="35b00041-1198-43a7-b5b7-cc78d8e7299d" type="Normal" published="True">
+    <name>List All</name>
+    <view>
+      <camerax>-12</camerax>
+      <cameray>80</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="264720a2-2b3e-4974-a69c-87ca1e8b312b" type="Normal" published="True">
+    <name>List</name>
+    <view>
+      <camerax>34</camerax>
+      <cameray>104</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="bc1dbced-5f1f-43cd-ae43-28941a596edd" type="Normal" published="True">
+    <name>Start</name>
+    <view>
+      <camerax>-59</camerax>
+      <cameray>68</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="57eb0ad6-47c6-4b4c-b87e-25cda3eeb650" type="Normal" published="True">
+    <name>Power Off</name>
+    <view>
+      <camerax>-59</camerax>
+      <cameray>75</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="3159d957-b31a-49ca-813a-80b9ac628ca9" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>d1a34c78-b5d5-4dad-adfc-854bfc589700</onsuccess>
+  </stage>
+  <stage stageid="d1a34c78-b5d5-4dad-adfc-854bfc589700" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="78267d30-8915-40d8-8e1e-8b9dd4e19edc" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="6a0ec12f-6518-4350-833e-0ebdbb3518e0" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>df0ac084-ec13-44e2-bc78-171632e0c6c0</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c9b0aa01-8527-4d9e-a2cb-3cc04b8340dd" name="Start" type="Start">
+    <subsheetid>df0ac084-ec13-44e2-bc78-171632e0c6c0</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>8a2621fe-d0a7-4133-9d9b-a69e728eae1f</onsuccess>
+  </stage>
+  <stage stageid="8a2621fe-d0a7-4133-9d9b-a69e728eae1f" name="End" type="End">
+    <subsheetid>df0ac084-ec13-44e2-bc78-171632e0c6c0</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="e86d6d42-7f78-4902-a034-432a4de357db" name="Get Azure Auth Token" type="SubSheetInfo">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="3dc26b03-65a1-45d7-82af-aadb83cfd1d4" name="Start" type="Start">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="15" y="-90" />
+    <inputs>
+      <input type="text" name="Tenant Id" narrative="The Microsoft Tenant Id" stage="Tenant Id" />
+      <input type="text" name="Client Id" stage="Client Id" />
+      <input type="text" name="Client Secret" stage="Client Secret" />
+      <input type="text" name="Resource" stage="Resource" />
+    </inputs>
+    <onsuccess>201a37e2-0d2c-4b44-aa8b-e700b3353542</onsuccess>
+  </stage>
+  <stage stageid="18768139-d13d-4c18-a19b-46aac5333346" name="End" type="End">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="15" y="270" />
+    <outputs>
+      <output type="text" name="Token" stage="Token Collection.access_token" />
+    </outputs>
+  </stage>
+  <stage stageid="df2fe3c0-7d03-41d6-aa75-2726623ff66d" name="Note1" type="Note">
+    <subsheetid>df0ac084-ec13-44e2-bc78-171632e0c6c0</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="7930a73e-8fef-4b79-8d8f-86b5d41895bc" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="6c1a4d61-1336-41f2-8b76-e18259a553af" name="Microsoft Azure Oauth::Get Auth Token" type="Action">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+    <inputs>
+      <input type="text" name="Tenant Id" friendlyname="Tenant Id" narrative="Guid Tenant Id for Microsoft" expr="[Tenant Id]" />
+      <input type="text" name="Client Id" friendlyname="Client Id" narrative="Microsoft Client Id" expr="[Client Id]" />
+      <input type="text" name="Client Secret" friendlyname="Client Secret" narrative="Microsoft Client Secret" expr="[Client Secret]" />
+      <input type="text" name="Resource" friendlyname="Resource" narrative="Resource" expr="[Resource]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Response Content" friendlyname="Response Content" stage="Response Content" />
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="Response Headers" />
+      <output type="collection" name="Token Collection" friendlyname="Token Collection" stage="Token Collection" />
+    </outputs>
+    <onsuccess>d6148f6d-aa12-471d-b5b8-57e473b4d8ee</onsuccess>
+    <resource object="Microsoft Azure Oauth" action="Get Auth Token" />
+  </stage>
+  <stage stageid="52e57c88-fc1f-41f5-8eae-8dd96ec674b7" name="Response Content" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="-210" y="255" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6d6b193a-ab0d-42dc-bdc3-88c2ba1fa285" name="HTTP Status Code" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="-285" y="210" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eb7a35f9-87ee-485b-8e32-60944e7c449b" name="Response Headers" type="Collection">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="-285" y="255" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="727f498d-01e7-4619-9d3b-9da1319fdd34" name="Token Collection" type="Collection">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="-135" y="255" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="token_type" type="text" />
+      <field name="expires_in" type="text" />
+      <field name="ext_expires_in" type="text" />
+      <field name="expires_on" type="text" />
+      <field name="not_before" type="text" />
+      <field name="resource" type="text" />
+      <field name="access_token" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="672522d1-f52b-49d4-835c-a8d7d6b04093" name="Tenant Id" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-300" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ecab0447-a679-4190-9a1e-bc0c406c39ce" name="Client Id" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-240" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="11e7e689-d006-496d-9ebe-44458b5fd0e1" name="Client Secret" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-180" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="15546e68-bad8-4bdd-95d0-9278ad7797ff" name="List All" type="SubSheetInfo">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="01e8d551-14b3-41a3-8e1d-2e0731627388" name="Start" type="Start">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Resource" stage="Resource" />
+      <input type="text" name="Tenant Id" stage="Tenant Id" />
+      <input type="text" name="Client Id" stage="Client Id" />
+      <input type="text" name="Client Secret" stage="Client Secret" />
+    </inputs>
+    <onsuccess>671552b8-88a4-4883-bfd6-352e88486440</onsuccess>
+  </stage>
+  <stage stageid="ced196d3-fc65-448f-b434-f8ff9c84e1fe" name="End" type="End">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="15" y="255" />
+    <outputs>
+      <output type="collection" name="Response" stage="ListAll Response" />
+    </outputs>
+  </stage>
+  <stage stageid="06d1df5f-8776-4f74-9baa-0daba8a51d53" name="Token" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="671552b8-88a4-4883-bfd6-352e88486440" name="Get Azure Auth Token" type="SubSheet">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Tenant Id" friendlyname="Tenant Id" narrative="The Microsoft Tenant Id" expr="[Tenant Id]" />
+      <input type="text" name="Client Id" friendlyname="Client Id" expr="[Client Id]" />
+      <input type="text" name="Client Secret" friendlyname="Client Secret" expr="[Client Secret]" />
+      <input type="text" name="Resource" friendlyname="Resource" expr="[Resource]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Token" friendlyname="Token" stage="Token" />
+    </outputs>
+    <onsuccess>b4cbaf04-4ee9-40f4-bb9b-0a1a0a1cb1d0</onsuccess>
+    <processid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</processid>
+  </stage>
+  <stage stageid="a39e3954-14c3-4d3c-986f-ab4928a22132" name="Input Variables" type="Block">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-345" y="-45" w="270" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="0541c2d1-f767-4da9-b9d5-cb595f0d9464" name="Output Variables" type="Block">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-345" y="165" w="270" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d6148f6d-aa12-471d-b5b8-57e473b4d8ee" name="HTTP Status Code OK?" type="Decision">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="15" y="195" />
+    <decision expression="[HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>18768139-d13d-4c18-a19b-46aac5333346</ontrue>
+    <onfalse>42e699fe-3664-441d-98ba-f331cb57f02c</onfalse>
+  </stage>
+  <stage stageid="42e699fe-3664-441d-98ba-f331cb57f02c" name="Throw System Exception" type="Exception">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="105" y="195" />
+    <exception localized="yes" type="System Exception" detail="[Response Content]" />
+  </stage>
+  <stage stageid="96a88a45-8696-42cf-a04c-7e4a40863b94" name="Retry" type="Block">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-345" y="60" w="270" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="633b6a77-1787-48ce-88ea-e5c9ba89cd35" name="Max Retries" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-285" y="105" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f40f99b2-7564-4543-aea9-ca042cc774dc" name="Current Retry" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-210" y="105" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec68235c-3bff-4e7f-a29a-75f46f7601ec" name="API Block" type="Block">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-45" y="45" w="195" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e919aa9a-2a21-45b6-a064-6e28f043a2b8" name="Recover API Call" type="Recover">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="105" y="90" />
+    <onsuccess>b8d82718-b2c4-4d42-aa60-015b170448f0</onsuccess>
+  </stage>
+  <stage stageid="b8d82718-b2c4-4d42-aa60-015b170448f0" name="Increment Retry" type="Calculation">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="210" y="90" />
+    <onsuccess>b447fb90-ef59-4d2a-8de7-559f6d4610a8</onsuccess>
+    <calculation expression="[Current Retry] + 1" stage="Current Retry" />
+  </stage>
+  <stage stageid="b447fb90-ef59-4d2a-8de7-559f6d4610a8" name="Count &lt; Max" type="Decision">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="210" y="30" />
+    <decision expression="[Current Retry] &lt; [Max Retries]" />
+    <ontrue>35f65c9d-997d-42fd-8b4f-ee05518c5833</ontrue>
+    <onfalse>be59a65e-f398-4ba7-9772-d970372463db</onfalse>
+  </stage>
+  <stage stageid="201a37e2-0d2c-4b44-aa8b-e700b3353542" name="Anchor4" type="Anchor">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="15" y="-30" w="10" h="10" />
+    <onsuccess>6c1a4d61-1336-41f2-8b76-e18259a553af</onsuccess>
+  </stage>
+  <stage stageid="35f65c9d-997d-42fd-8b4f-ee05518c5833" name="Resume API" type="Resume">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="210" y="-30" />
+    <onsuccess>201a37e2-0d2c-4b44-aa8b-e700b3353542</onsuccess>
+  </stage>
+  <stage stageid="be59a65e-f398-4ba7-9772-d970372463db" name="Throw Exception After Retry" type="Exception">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <display x="300" y="30" />
+    <exception localized="yes" type="System Unavailable Exception" detail="ExceptionDetail()" />
+  </stage>
+  <stage stageid="84ea7f3b-1f52-4950-9e99-cc7b2e44ca41" name="Tenant Id" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-270" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dc99423c-a906-4df9-ae41-dc691d093399" name="Client Id" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-195" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="005cb99e-79cd-4baa-8c52-cbddc8a83665" name="Client Secret" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-270" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="012659c6-769e-4d47-9b56-9f71a44b041c" name="Auth Items" type="Block">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-315" y="-45" w="240" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e4cbe408-46f7-4169-8283-1596fb1141da" name="Output" type="Block">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-315" y="300" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="540ae944-241c-41e4-bd5d-fd7360b9d8c5" name="Resource" type="Data">
+    <subsheetid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</subsheetid>
+    <loginhibit />
+    <display x="-120" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cfe5b3cb-1586-4177-b477-9b6f94cf5b6e" name="Resource" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-195" y="45" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">https://management.core.windows.net</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b4cbaf04-4ee9-40f4-bb9b-0a1a0a1cb1d0" name="Microsoft Azure Management::List All" type="Action">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <inputs>
+      <input type="text" name="Subscription Id" friendlyname="Subscription Id" expr="[Subscription Id]" />
+      <input type="text" name="Token" friendlyname="Token" expr="[Token]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Response Content" friendlyname="Response Content" stage="Response Content" />
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="ListAll Response" friendlyname="ListAll Response" stage="ListAll Response" />
+    </outputs>
+    <onsuccess>6b1745e9-2fbc-42d3-bde8-24433eb017b9</onsuccess>
+    <resource object="Microsoft Azure Management" action="List All" />
+  </stage>
+  <stage stageid="f65fb21b-9dd5-40d1-a0f3-12233f345fd7" name="API Items" type="Block">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-315" y="105" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="89f82809-8c20-47b7-926a-e74e679d875c" name="Subscription Id" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-270" y="150" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9769414c-dd83-4592-a9eb-04b2a0a0fd1f" name="HTTP Status Code" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="-270" y="345" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9dc611ed-61a2-4e6d-b0f8-27ee4d19e107" name="Response Content" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="-120" y="345" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6b1745e9-2fbc-42d3-bde8-24433eb017b9" name="HTTP Status Code OK?" type="Decision">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="15" y="180" />
+    <decision expression="[HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>ced196d3-fc65-448f-b434-f8ff9c84e1fe</ontrue>
+    <onfalse>c2dbdc4b-74c3-477b-a1c8-5c810ed86243</onfalse>
+  </stage>
+  <stage stageid="c2dbdc4b-74c3-477b-a1c8-5c810ed86243" name="Throw System Exception" type="Exception">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="105" y="180" />
+    <exception localized="yes" type="System Exception" detail="[Response Content]" />
+  </stage>
+  <stage stageid="7fb925e4-a9d2-4de8-b98a-c332f29857a6" name="Retry" type="Block">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-315" y="210" w="240" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="67c4d367-e15b-415c-b35b-5b9f82ecf5cc" name="Max Retries" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-255" y="240" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f17cb708-093e-440e-8739-254bfd035ced" name="Current Retry" type="Data">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-195" y="240" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c5a31d7b-8523-479b-9c7e-6c703e8e86b9" name="API Block" type="Block">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="-45" y="60" w="195" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="7918fd73-0267-465c-b4e3-492b8b5c1606" name="Recover API Call" type="Recover">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="105" y="105" />
+    <onsuccess>5a6992f8-3942-4bc2-8a14-8582e09bbad1</onsuccess>
+  </stage>
+  <stage stageid="5a6992f8-3942-4bc2-8a14-8582e09bbad1" name="Increment Retry" type="Calculation">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="210" y="105" />
+    <onsuccess>b3e2e7a1-cae5-4452-b0b5-db2eff990c95</onsuccess>
+    <calculation expression="[Current Retry] + 1" stage="Current Retry" />
+  </stage>
+  <stage stageid="b3e2e7a1-cae5-4452-b0b5-db2eff990c95" name="Count &lt; Max" type="Decision">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="210" y="45" />
+    <decision expression="[Current Retry] &lt; [Max Retries]" />
+    <ontrue>98322398-9b9c-4d3e-a942-bf70439876eb</ontrue>
+    <onfalse>8a20153f-2a14-4992-b9de-8f60bf8a004b</onfalse>
+  </stage>
+  <stage stageid="98322398-9b9c-4d3e-a942-bf70439876eb" name="Resume API" type="Resume">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <loginhibit />
+    <display x="210" y="-15" />
+    <onsuccess>671552b8-88a4-4883-bfd6-352e88486440</onsuccess>
+  </stage>
+  <stage stageid="8a20153f-2a14-4992-b9de-8f60bf8a004b" name="Throw Exception After Retry" type="Exception">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="300" y="45" />
+    <exception localized="yes" type="System Unavailable Exception" detail="ExceptionDetail()" />
+  </stage>
+  <stage stageid="f0bea57e-0bf7-4b45-9f2a-7e7be57a8a10" name="ListAll Response" type="Collection">
+    <subsheetid>35b00041-1198-43a7-b5b7-cc78d8e7299d</subsheetid>
+    <display x="-195" y="345" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="350d3092-1b01-4573-aa3b-5f1a2b40c335" name="List" type="SubSheetInfo">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="51132596-f3af-493b-9075-729d0101797a" name="Start" type="Start">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Resource" stage="Resource" />
+      <input type="text" name="Tenant Id" stage="Tenant Id" />
+      <input type="text" name="Client Id" stage="Client Id" />
+      <input type="text" name="Client Secret" stage="Client Secret" />
+    </inputs>
+    <onsuccess>2c914567-1d9f-4071-a03b-81e35acf7007</onsuccess>
+  </stage>
+  <stage stageid="383500b7-ed57-4433-904b-cab3af158b4b" name="End" type="End">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="15" y="255" />
+    <outputs>
+      <output type="collection" name="Response" stage="List Response" />
+    </outputs>
+  </stage>
+  <stage stageid="536daaee-7af0-4c21-a4e4-a57f4508fa94" name="Token" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2c914567-1d9f-4071-a03b-81e35acf7007" name="Get Azure Auth Token" type="SubSheet">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Tenant Id" friendlyname="Tenant Id" narrative="The Microsoft Tenant Id" expr="[Tenant Id]" />
+      <input type="text" name="Client Id" friendlyname="Client Id" expr="[Client Id]" />
+      <input type="text" name="Client Secret" friendlyname="Client Secret" expr="[Client Secret]" />
+      <input type="text" name="Resource" friendlyname="Resource" expr="[Resource]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Token" friendlyname="Token" stage="Token" />
+    </outputs>
+    <onsuccess>92f2096d-4bc3-4ff8-9f78-f0c422ba80f2</onsuccess>
+    <processid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</processid>
+  </stage>
+  <stage stageid="b3acbc62-2128-41f8-b952-16d496ee2b50" name="Tenant Id" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-270" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f8c97c0b-0914-40d7-afb1-c6bde3d46557" name="Client Id" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-195" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7676bf1c-f044-403e-845c-656a474e780d" name="Client Secret" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-270" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2207f7e0-be99-424f-9781-4ecee90d270d" name="Auth Items" type="Block">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-315" y="-45" w="240" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="5656d724-b4bb-4d2a-8c14-e1151308064c" name="Output" type="Block">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-315" y="300" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="3581c464-4970-47b0-bcde-58288b0129ac" name="Resource" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-195" y="45" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">https://management.core.windows.net</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="92f2096d-4bc3-4ff8-9f78-f0c422ba80f2" name="Microsoft Azure Management::List" type="Action">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <inputs>
+      <input type="text" name="Subscription Id" friendlyname="Subscription Id" expr="[Subscription Id]" />
+      <input type="text" name="Token" friendlyname="Token" expr="[Token]" />
+      <input type="text" name="Resource Group Name" friendlyname="Resource Group Name" expr="[Resource Group]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Response Content" friendlyname="Response Content" stage="Response Content" />
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="List Response" friendlyname="List Response" stage="List Response" />
+    </outputs>
+    <onsuccess>3d1e3f2b-efb1-4b82-a23e-791352001700</onsuccess>
+    <resource object="Microsoft Azure Management" action="List" />
+  </stage>
+  <stage stageid="302ca941-884f-48cf-8dc7-5c3f90d9d75a" name="API Items" type="Block">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-315" y="105" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="acd8a3d6-96ca-4212-b4e8-8ac7f19fa4b6" name="Subscription Id" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-270" y="150" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2a5c5f81-9db0-4aea-ae45-e1b6ce5f5b89" name="HTTP Status Code" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="-270" y="345" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="20ab2fc8-6d8d-4889-a4b1-0c25a23ed975" name="Response Content" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="-120" y="345" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3d1e3f2b-efb1-4b82-a23e-791352001700" name="HTTP Status Code OK?" type="Decision">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="15" y="180" />
+    <decision expression="[HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>383500b7-ed57-4433-904b-cab3af158b4b</ontrue>
+    <onfalse>3869ba63-a673-4ae7-bf52-ebe439a90a8d</onfalse>
+  </stage>
+  <stage stageid="3869ba63-a673-4ae7-bf52-ebe439a90a8d" name="Throw System Exception" type="Exception">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="105" y="180" />
+    <exception localized="yes" type="System Exception" detail="[Response Content]" />
+  </stage>
+  <stage stageid="42582c76-ed56-45a2-972b-45896e43d929" name="Retry" type="Block">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-315" y="210" w="240" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="7f8b7541-5276-4f97-b5e8-e54de58695d3" name="Max Retries" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-255" y="240" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="81446ac9-ba2d-4401-aa4d-677808d6ceab" name="Current Retry" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-195" y="240" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="726124f4-bf58-4e78-ad8b-fc3b965135e3" name="API Block" type="Block">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-45" y="60" w="195" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b7e6bbb8-7d36-4ce6-aafe-a7dffa20f710" name="Recover API Call" type="Recover">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="105" y="105" />
+    <onsuccess>6a646b7f-c1f8-4cf3-a278-086612ea286d</onsuccess>
+  </stage>
+  <stage stageid="6a646b7f-c1f8-4cf3-a278-086612ea286d" name="Increment Retry" type="Calculation">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="210" y="105" />
+    <onsuccess>4c218eb5-c123-47fd-a0ca-4d8bfee759f4</onsuccess>
+    <calculation expression="[Current Retry] + 1" stage="Current Retry" />
+  </stage>
+  <stage stageid="4c218eb5-c123-47fd-a0ca-4d8bfee759f4" name="Count &lt; Max" type="Decision">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="210" y="45" />
+    <decision expression="[Current Retry] &lt; [Max Retries]" />
+    <ontrue>3dc295f8-2709-4ce8-bd3b-3a63b47a7e1c</ontrue>
+    <onfalse>549f315f-96b6-4f49-b76b-6b6fb5025252</onfalse>
+  </stage>
+  <stage stageid="3dc295f8-2709-4ce8-bd3b-3a63b47a7e1c" name="Resume API" type="Resume">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="210" y="-15" />
+    <onsuccess>2c914567-1d9f-4071-a03b-81e35acf7007</onsuccess>
+  </stage>
+  <stage stageid="549f315f-96b6-4f49-b76b-6b6fb5025252" name="Throw Exception After Retry" type="Exception">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="300" y="45" />
+    <exception localized="yes" type="System Unavailable Exception" detail="ExceptionDetail()" />
+  </stage>
+  <stage stageid="884a5391-eae9-4d9d-92f3-baae2d647a12" name="List Response" type="Collection">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <display x="-195" y="345" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2b3f0ca4-5b57-497c-811e-5dd8d14ef575" name="Resource Group" type="Data">
+    <subsheetid>264720a2-2b3e-4974-a69c-87ca1e8b312b</subsheetid>
+    <loginhibit />
+    <display x="-120" y="150" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">SHARED-AD-CORE</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="80739f3e-f4c3-4dcc-a57c-903ec972d222" name="Start" type="SubSheetInfo">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="134127f4-b965-49bb-8ec4-c62ca774966c" name="Start" type="Start">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Resource" stage="Resource" />
+      <input type="text" name="Tenant Id" stage="Tenant Id" />
+      <input type="text" name="Client Id" stage="Client Id" />
+      <input type="text" name="Client Secret" stage="Client Secret" />
+    </inputs>
+    <onsuccess>6fffd86b-6a6e-4705-be3f-804df9d2850d</onsuccess>
+  </stage>
+  <stage stageid="946198fd-0cd8-4432-b8b9-17d55d8152f6" name="End" type="End">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="15" y="255" />
+  </stage>
+  <stage stageid="bad390e6-543d-4848-a39e-55f58e0d719e" name="Token" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-165" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6fffd86b-6a6e-4705-be3f-804df9d2850d" name="Get Azure Auth Token" type="SubSheet">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Tenant Id" friendlyname="Tenant Id" narrative="The Microsoft Tenant Id" expr="[Tenant Id]" />
+      <input type="text" name="Client Id" friendlyname="Client Id" expr="[Client Id]" />
+      <input type="text" name="Client Secret" friendlyname="Client Secret" expr="[Client Secret]" />
+      <input type="text" name="Resource" friendlyname="Resource" expr="[Resource]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Token" friendlyname="Token" stage="Token" />
+    </outputs>
+    <onsuccess>cd4625ea-203a-41d2-adca-2d4d8854a909</onsuccess>
+    <processid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</processid>
+  </stage>
+  <stage stageid="65f25522-8ef7-4ac6-995b-21684b86b160" name="Tenant Id" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-240" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7c6c9478-3c7e-461b-b3cb-590283a7a2d8" name="Client Id" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-165" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4aa1560b-293a-44c2-bbc6-91a12953569c" name="Client Secret" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-240" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ff5415e0-eb14-41da-8a70-88f4b9df55bb" name="Auth Items" type="Block">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-315" y="-45" w="240" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="ede69284-ec77-4dc2-95a3-6d7685901360" name="Output" type="Block">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-315" y="330" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="6cafb355-cd73-4d44-9d40-b21acf785701" name="Resource" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-165" y="45" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">https://management.core.windows.net</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cd4625ea-203a-41d2-adca-2d4d8854a909" name="Microsoft Azure Management::Start" type="Action">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <inputs>
+      <input type="text" name="Subscription Id" friendlyname="Subscription Id" expr="[Subscription Id]" />
+      <input type="text" name="Token" friendlyname="Token" expr="[Token]" />
+      <input type="text" name="Resource Group Name" friendlyname="Resource Group Name" expr="[Resource Group]" />
+      <input type="text" name="VM Name" friendlyname="VM Name" expr="[VM Name]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Response Content" friendlyname="Response Content" stage="Response Content" />
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="Start Response" friendlyname="Start Response" stage="" />
+    </outputs>
+    <onsuccess>0f142cdb-85b1-4760-9591-21f3276ef4bb</onsuccess>
+    <resource object="Microsoft Azure Management" action="Start" />
+  </stage>
+  <stage stageid="c736f9ac-dbdc-40c9-9dec-b9ff8babb548" name="API Items" type="Block">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-315" y="105" w="240" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="0e12404e-8632-4c14-8318-3e17e7b75f1d" name="Subscription Id" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-240" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="392d56e1-2c8f-44a4-84c1-b1434bde26c1" name="HTTP Status Code" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <display x="-240" y="375" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec618ffa-e48a-4df7-b309-b07950978c21" name="Response Content" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <display x="-165" y="375" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0f142cdb-85b1-4760-9591-21f3276ef4bb" name="HTTP Status Code OK?" type="Decision">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="15" y="180" />
+    <decision expression="[HTTP Status Code] = &quot;200&quot; OR [HTTP Status Code] = &quot;202&quot;" />
+    <ontrue>946198fd-0cd8-4432-b8b9-17d55d8152f6</ontrue>
+    <onfalse>81d21673-ea21-4dcd-9f6b-88377b1cdc2b</onfalse>
+  </stage>
+  <stage stageid="81d21673-ea21-4dcd-9f6b-88377b1cdc2b" name="Throw System Exception" type="Exception">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <display x="105" y="180" />
+    <exception localized="yes" type="System Exception" detail="[Response Content]" />
+  </stage>
+  <stage stageid="8adfe76f-07b3-497a-bc2d-a1a93d6bca1b" name="Retry" type="Block">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-315" y="240" w="240" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b659b407-7704-42ea-bf22-70e32f62db80" name="Max Retries" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-240" y="270" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9e33640a-c1ac-4b3a-89c3-66f30c234b00" name="Current Retry" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-165" y="270" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c28c345f-68ca-4189-ba4d-469f230cf027" name="API Block" type="Block">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-45" y="60" w="195" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="46ba51d1-3871-47b3-af8f-096ab0ed53ef" name="Recover API Call" type="Recover">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="105" y="105" />
+    <onsuccess>f83dec87-283d-4f10-b655-5db1f1c25d73</onsuccess>
+  </stage>
+  <stage stageid="f83dec87-283d-4f10-b655-5db1f1c25d73" name="Increment Retry" type="Calculation">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="210" y="105" />
+    <onsuccess>785a2fd2-c60d-45b5-ba13-11a500cd888c</onsuccess>
+    <calculation expression="[Current Retry] + 1" stage="Current Retry" />
+  </stage>
+  <stage stageid="785a2fd2-c60d-45b5-ba13-11a500cd888c" name="Count &lt; Max" type="Decision">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="210" y="45" />
+    <decision expression="[Current Retry] &lt; [Max Retries]" />
+    <ontrue>2154ab3b-4e45-4333-956c-5f92ddb660c5</ontrue>
+    <onfalse>034f3f26-7284-498a-9eea-37ef9c09129e</onfalse>
+  </stage>
+  <stage stageid="2154ab3b-4e45-4333-956c-5f92ddb660c5" name="Resume API" type="Resume">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="210" y="-15" />
+    <onsuccess>6fffd86b-6a6e-4705-be3f-804df9d2850d</onsuccess>
+  </stage>
+  <stage stageid="034f3f26-7284-498a-9eea-37ef9c09129e" name="Throw Exception After Retry" type="Exception">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <display x="300" y="45" />
+    <exception localized="yes" type="System Unavailable Exception" detail="ExceptionDetail()" />
+  </stage>
+  <stage stageid="288fec30-0245-4169-9f4a-7379fd4795ab" name="Resource Group" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-240" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">se_demo-vm</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="81e5389d-240d-490a-8759-29f400a2e5a9" name="VM Name" type="Data">
+    <subsheetid>bc1dbced-5f1f-43cd-ae43-28941a596edd</subsheetid>
+    <loginhibit />
+    <display x="-165" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">bpse-demo-1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4de2339c-cac7-43f7-bd13-87d3d7303ab8" name="Power Off" type="SubSheetInfo">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c507ec57-14d3-4a2c-9803-39f764ebff05" name="Power Off" type="Start">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Resource" stage="Resource" />
+      <input type="text" name="Tenant Id" stage="Tenant Id" />
+      <input type="text" name="Client Id" stage="Client Id" />
+      <input type="text" name="Client Secret" stage="Client Secret" />
+    </inputs>
+    <onsuccess>c8e0f306-2412-4ce3-8a2e-6b6918b9fb7c</onsuccess>
+  </stage>
+  <stage stageid="30409e80-61b1-4e17-b214-67a017bd0e90" name="End" type="End">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="15" y="255" />
+  </stage>
+  <stage stageid="1aa7d9e1-ac53-4eba-a265-91699d095b06" name="Token" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-165" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c8e0f306-2412-4ce3-8a2e-6b6918b9fb7c" name="Get Azure Auth Token" type="SubSheet">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Tenant Id" friendlyname="Tenant Id" narrative="The Microsoft Tenant Id" expr="[Tenant Id]" />
+      <input type="text" name="Client Id" friendlyname="Client Id" expr="[Client Id]" />
+      <input type="text" name="Client Secret" friendlyname="Client Secret" expr="[Client Secret]" />
+      <input type="text" name="Resource" friendlyname="Resource" expr="[Resource]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Token" friendlyname="Token" stage="Token" />
+    </outputs>
+    <onsuccess>621fe1e3-e5f5-4217-8f59-4bd51905befa</onsuccess>
+    <processid>ab13e174-b5c5-4084-9ae4-69cf92f2d2e9</processid>
+  </stage>
+  <stage stageid="1ad3dce6-f3cf-41d4-8179-f2a31281e8e4" name="Tenant Id" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-240" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="35baf2f0-82f4-4338-9e55-bc0e2beace5c" name="Client Id" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-165" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9ba84328-bfbd-40ec-9f7c-59adee59361f" name="Client Secret" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-240" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e0a4dc75-24fa-4596-b1d0-56fef9042257" name="Auth Items" type="Block">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-315" y="-45" w="240" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="a8cf56fe-9295-4e97-830f-31720d7b4a68" name="Output" type="Block">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-315" y="330" w="240" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="bab09066-57b5-4f5f-a5bf-ad7b3639545f" name="Resource" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-165" y="45" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">https://management.core.windows.net</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="621fe1e3-e5f5-4217-8f59-4bd51905befa" name="Microsoft Azure Management::Power Off" type="Action">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <inputs>
+      <input type="text" name="Subscription Id" friendlyname="Subscription Id" expr="[Subscription Id]" />
+      <input type="text" name="Token" friendlyname="Token" expr="[Token]" />
+      <input type="text" name="Resource Group Name" friendlyname="Resource Group Name" expr="[Resource Group]" />
+      <input type="text" name="VM Name" friendlyname="VM Name" expr="[VM Name]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Response Content" friendlyname="Response Content" stage="Response Content" />
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+    </outputs>
+    <onsuccess>290d2b92-5321-478c-99a7-e60ab8377824</onsuccess>
+    <resource object="Microsoft Azure Management" action="Power Off" />
+  </stage>
+  <stage stageid="a0a6bbeb-0b5b-4aae-b7c5-2596b5592dbc" name="API Items" type="Block">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-315" y="105" w="240" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="ea7c7f36-0afa-4a7f-9c04-414968272837" name="Subscription Id" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-240" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="bc06ecf7-0779-44ab-b690-ae4a7d2f928f" name="HTTP Status Code" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <display x="-240" y="375" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c058a3f1-e650-4f85-859c-2d0d00ae8549" name="Response Content" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <display x="-165" y="375" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="290d2b92-5321-478c-99a7-e60ab8377824" name="HTTP Status Code OK?" type="Decision">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="15" y="180" />
+    <decision expression="[HTTP Status Code] = &quot;200&quot; OR [HTTP Status Code] = &quot;202&quot;" />
+    <ontrue>30409e80-61b1-4e17-b214-67a017bd0e90</ontrue>
+    <onfalse>a0e70af8-c118-41c9-be19-ece88a7cb4d8</onfalse>
+  </stage>
+  <stage stageid="a0e70af8-c118-41c9-be19-ece88a7cb4d8" name="Throw System Exception" type="Exception">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <display x="105" y="180" />
+    <exception localized="yes" type="System Exception" detail="[Response Content]" />
+  </stage>
+  <stage stageid="8155c44c-fb91-4f97-9313-fcb25fa22af6" name="Retry" type="Block">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-315" y="240" w="240" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="709c8be3-a9c7-49bb-9dba-8977f4ce91db" name="Max Retries" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-240" y="270" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7a18a5db-162a-49f2-9f0d-1a19360c0d25" name="Current Retry" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-165" y="270" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="254f11c2-02da-4007-a73b-6f4cd9f40385" name="API Block" type="Block">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-45" y="60" w="195" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="3094e6b3-c33e-4c4b-bfd0-8b2b7cd6fa60" name="Recover API Call" type="Recover">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="105" y="105" />
+    <onsuccess>8520cc36-d617-4bf2-ad84-54edf6e54029</onsuccess>
+  </stage>
+  <stage stageid="8520cc36-d617-4bf2-ad84-54edf6e54029" name="Increment Retry" type="Calculation">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="210" y="105" />
+    <onsuccess>06fab349-543e-4426-b3bf-49a939af8650</onsuccess>
+    <calculation expression="[Current Retry] + 1" stage="Current Retry" />
+  </stage>
+  <stage stageid="06fab349-543e-4426-b3bf-49a939af8650" name="Count &lt; Max" type="Decision">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="210" y="45" />
+    <decision expression="[Current Retry] &lt; [Max Retries]" />
+    <ontrue>f80afebe-4e69-4389-8898-f46eb4e88d18</ontrue>
+    <onfalse>cec67911-fcd7-4bfe-bc79-f3a7187ef21f</onfalse>
+  </stage>
+  <stage stageid="f80afebe-4e69-4389-8898-f46eb4e88d18" name="Resume API" type="Resume">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="210" y="-15" />
+    <onsuccess>c8e0f306-2412-4ce3-8a2e-6b6918b9fb7c</onsuccess>
+  </stage>
+  <stage stageid="cec67911-fcd7-4bfe-bc79-f3a7187ef21f" name="Throw Exception After Retry" type="Exception">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <display x="300" y="45" />
+    <exception localized="yes" type="System Unavailable Exception" detail="ExceptionDetail()" />
+  </stage>
+  <stage stageid="ca1321f0-3b67-4324-a8e3-4a2a56e76581" name="Resource Group" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-240" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">se_demo-vm</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="053648cc-f297-47de-b20f-67630e59afab" name="VM Name" type="Data">
+    <subsheetid>57eb0ad6-47c6-4b4c-b87e-25cda3eeb650</subsheetid>
+    <loginhibit />
+    <display x="-165" y="180" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">bpse-demo-1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

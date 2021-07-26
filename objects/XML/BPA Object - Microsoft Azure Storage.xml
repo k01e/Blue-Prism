@@ -1,0 +1,915 @@
+﻿<process name="Microsoft Azure Storage" version="1.0" bpversion="6.8.0.23415" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="1298c0b9-e640-4ecf-b2dd-f3025103d431">
+  <appdef>
+    <element name="Application Root">
+      <id>30f48268-9a99-404c-83e1-3997bafe8d47</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="02151ed0-b65e-4f40-927a-3334e0ef1e62" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="e1447115-5b48-498d-8e6f-723814f60724" type="Normal" published="True">
+    <name>List Containers</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8ce424a2-339e-4af8-bd3a-3359330949b2" type="Normal" published="True">
+    <name>Create Container</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2" type="Normal" published="True">
+    <name>Delete Container</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac" type="Normal" published="True">
+    <name>List Container Blobs</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="2795c58e-4a1a-43a2-aa13-c15169fd84ac" type="Normal" published="True">
+    <name>Upload Blob to Container</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="200a93a7-ea64-4b0d-9474-e6f9b6f46145" type="Normal" published="True">
+    <name>Delete Blob from Container</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="3f21cefc-09a6-41fe-b9f7-000010d80d33" type="Normal" published="True">
+    <name>Blob Exists?</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="14158ced-6dd7-4b5f-89ee-90c90f047254" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>2bfcf5e4-08fa-4e76-8bc7-642ca47b3d1f</onsuccess>
+  </stage>
+  <stage stageid="2bfcf5e4-08fa-4e76-8bc7-642ca47b3d1f" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="685f7e0c-a68a-41fd-b231-6018b1815ad0" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>Azure.Core.dll</reference>
+      <reference>Azure.Storage.Blobs.dll</reference>
+      <reference>Azure.Storage.Common.dll</reference>
+      <reference>Microsoft.Azure.KeyVault.Core.dll</reference>
+      <reference>Microsoft.Azure.Storage.Blob.dll</reference>
+      <reference>Microsoft.Azure.Storage.Common.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.IO</import>
+      <import>Microsoft.Azure.Storage</import>
+      <import>Microsoft.Azure.Storage.Blob</import>
+      <import>System.Data</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="e07e756d-6daf-439c-b2c7-1e05147b9d21" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>02151ed0-b65e-4f40-927a-3334e0ef1e62</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="431eaa8a-62d0-4876-bcd1-d690eea377ce" name="Start" type="Start">
+    <subsheetid>02151ed0-b65e-4f40-927a-3334e0ef1e62</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>c34641f1-b208-46e6-b634-80e0347e3082</onsuccess>
+  </stage>
+  <stage stageid="c34641f1-b208-46e6-b634-80e0347e3082" name="End" type="End">
+    <subsheetid>02151ed0-b65e-4f40-927a-3334e0ef1e62</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="e8f41738-f194-4153-90fe-1d3c4a50761c" name="Note1" type="Note">
+    <subsheetid>02151ed0-b65e-4f40-927a-3334e0ef1e62</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="b85a0f1a-44f8-45b7-a1b6-9dd6a4193722" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="1beabc3c-f29d-4196-99ec-f303ad6d802d" name="Create Container" type="SubSheetInfo">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c68169c4-9c8d-48fa-9216-bbd5ad569f42" name="Start" type="Start">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Name" stage="Container Name" />
+    </inputs>
+    <onsuccess>4d11b43a-d60f-4056-978a-f7fdf8c4bb39</onsuccess>
+  </stage>
+  <stage stageid="212c41f3-6433-4522-9caa-1d4c53539aaf" name="End" type="End">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="603861a2-2c8a-4d3f-912b-a04e694e202f" name="Container Name" type="Data">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">test-container</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="01e64260-9862-4ed2-9bf5-f4ed8154c969" name="Azure Storage Account Name" type="Data">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="60" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c2da0952-96ae-4b15-b22d-a2749d9310b2" name="Azure Storage Account Key" type="Data">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="13dd7de3-6143-42b3-9310-1f9c98a93ca1" name="Azure Variables" type="Block">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="-285" y="30" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="4fc1ada8-b6d7-4929-9b47-f69887967bff" name="Action Variables" type="Block">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="4d11b43a-d60f-4056-978a-f7fdf8c4bb39" name="Azure Create Container Code" type="Code">
+    <subsheetid>8ce424a2-339e-4af8-bd3a-3359330949b2</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container Name]" />
+    </inputs>
+    <onsuccess>212c41f3-6433-4522-9caa-1d4c53539aaf</onsuccess>
+    <code><![CDATA[try
+{
+	//Build Connection String
+	string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+	
+	//Get a reference to the storage account
+	CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+	CloudBlobClient bc = sa.CreateCloudBlobClient();
+	
+	//Get a reference to a sample container.
+	CloudBlobContainer container = bc.GetContainerReference(containerName);
+	
+	container.CreateIfNotExists();
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="472651d3-6bba-409d-b8a2-f3a2d65ff4e9" name="Delete Container" type="SubSheetInfo">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c374983d-3e2c-4a50-9547-d14c2adf9141" name="Start" type="Start">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Name" stage="Container Name" />
+    </inputs>
+    <onsuccess>243083e1-b508-4664-898b-c525a6666ea2</onsuccess>
+  </stage>
+  <stage stageid="7d674069-64c2-408b-bfb6-8fa9bb5f6e37" name="End" type="End">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="e6a2c8d0-2e8b-4ea3-bd90-f26139d4139a" name="Container Name" type="Data">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">test-container</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1db4921b-2458-4a0d-aa48-957892326753" name="Azure Storage Account Name" type="Data">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="60" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1c3a6e64-781f-48b1-87f8-92fbf23e5d01" name="Azure Storage Account Key" type="Data">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="-195" y="105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a46f1bfe-c9c0-441a-9c23-0ee0f2039da3" name="Azure Variables" type="Block">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="-285" y="30" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b7ddff90-c283-4e85-b39d-6d7ba2a46428" name="Action Variables" type="Block">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="243083e1-b508-4664-898b-c525a6666ea2" name="Azure Delete Container Code" type="Code">
+    <subsheetid>8a76106c-1fb9-43bb-a1a5-a66b5d95c9a2</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="150" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container Name]" />
+    </inputs>
+    <onsuccess>7d674069-64c2-408b-bfb6-8fa9bb5f6e37</onsuccess>
+    <code><![CDATA[try
+{
+	//Build Connection String
+	string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+	
+	//Get a reference to the storage account
+	CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+	CloudBlobClient bc = sa.CreateCloudBlobClient();
+	
+	//Get a reference to a sample container.
+	CloudBlobContainer container = bc.GetContainerReference(containerName);
+	
+	container.DeleteIfExists();
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="ef91aed3-b0bd-408e-ba4a-deae9471a96a" name="List Containers" type="SubSheetInfo">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="88944e83-b7a8-498c-85ea-c704dc020f42" name="Start" type="Start">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Prefix" stage="Container Prefix" />
+    </inputs>
+    <onsuccess>f935d6ef-4ae6-4fd4-971f-ca6a88a59e97</onsuccess>
+  </stage>
+  <stage stageid="07891530-cc90-42ab-b944-9d044f5c5809" name="End" type="End">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="collection" name="Containers" stage="Containers" />
+    </outputs>
+  </stage>
+  <stage stageid="12e7bab7-e41a-409d-afc4-e298986e54f7" name="Container Prefix" type="Data">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0d681c6a-b270-4ab8-bdbe-a10ac5b4e127" name="Azure Storage Account Name" type="Data">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-195" y="105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0c77218b-c3dd-4769-9273-2089a38cdef4" name="Azure Storage Account Key" type="Data">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c136e041-5256-425e-9dd8-c60c644e0b66" name="Azure Variables" type="Block">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-285" y="75" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="f3eebe06-254e-4fe1-8bfe-8aad58ddda29" name="Action Variables" type="Block">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="f935d6ef-4ae6-4fd4-971f-ca6a88a59e97" name="Azure List Containers Code" type="Code">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerPrefix" expr="[Container Prefix]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="containerCollection" stage="Containers" />
+    </outputs>
+    <onsuccess>07891530-cc90-42ab-b944-9d044f5c5809</onsuccess>
+    <code><![CDATA[try
+{
+	var dataTable = new DataTable();
+	dataTable.Columns.Add("Name", typeof(string));
+	
+	string prefix = null;
+	
+	if (!string.IsNullOrWhiteSpace(containerPrefix))
+	{
+		prefix = containerPrefix;
+	}
+	
+	//Build Connection String
+	string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+	
+	//Get a reference to the storage account
+	CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+	CloudBlobClient bc = sa.CreateCloudBlobClient();
+	
+	//Get a reference to a sample container.
+	var containers = bc.ListContainers(prefix, ContainerListingDetails.Metadata, null, null);
+	
+	foreach (var container in containers)
+	{
+		dataTable.Rows.Add(container.Name);
+	}
+	
+	containerCollection = dataTable;
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="d78b6528-2e6a-4f26-98b4-16a22dacdc50" name="Containers" type="Collection">
+    <subsheetid>e1447115-5b48-498d-8e6f-723814f60724</subsheetid>
+    <loginhibit />
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Name" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="3101ade4-db1e-4173-b563-37b8e7a749c7" name="List Container Blobs" type="SubSheetInfo">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="77e494a2-859c-4897-9f68-bed22963c634" name="Start" type="Start">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container" stage="Container" />
+      <input type="text" name="Blob Prefix" stage="Blob Prefix" />
+    </inputs>
+    <onsuccess>82112683-8d19-4495-801e-0b0b0aefaa73</onsuccess>
+  </stage>
+  <stage stageid="469326c9-01cc-42cb-8feb-d3f3f634c14f" name="End" type="End">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="collection" name="Blobs" stage="Blobs" />
+    </outputs>
+  </stage>
+  <stage stageid="2d000d93-53fc-40f7-a5f4-5ea01119552d" name="Blob Prefix" type="Data">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="45" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="332e2d07-c707-47f8-ba29-f9ebc15ab209" name="Azure Storage Account Name" type="Data">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="165" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="73aac069-2f7f-4fa1-99ab-c655e770bd85" name="Azure Storage Account Key" type="Data">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="210" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="387b1b87-7d2b-4ab3-883c-5ecfb9b15f13" name="Azure Variables" type="Block">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-285" y="135" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="4ce22bd9-20cb-45ef-9804-347213a13477" name="Action Variables" type="Block">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="165" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="82112683-8d19-4495-801e-0b0b0aefaa73" name="Azure List Container Blobs Code" type="Code">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container]" />
+      <input type="text" name="blobPrefix" expr="[Blob Prefix]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="blobCollection" stage="Blobs" />
+    </outputs>
+    <onsuccess>469326c9-01cc-42cb-8feb-d3f3f634c14f</onsuccess>
+    <code><![CDATA[try
+{
+	var dataTable = new DataTable();
+	dataTable.Columns.Add("Name", typeof(string));
+	
+	string prefix = null;
+	
+	if (!string.IsNullOrWhiteSpace(blobPrefix))
+	{
+		prefix = blobPrefix;
+	}
+	
+	//Build Connection String
+	string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+	
+	//Get a reference to the storage account
+	CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+	CloudBlobClient bc = sa.CreateCloudBlobClient();
+	
+	//Get a reference to a sample container.
+	CloudBlobContainer container = bc.GetContainerReference(containerName);
+	
+	var blobItems = container.ListBlobs(prefix);
+				
+	foreach (var blobItem in blobItems)
+	{
+		var blob = (CloudBlob)blobItem;
+		dataTable.Rows.Add(blob.Name);
+	}
+	
+	blobCollection = dataTable;
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="b88a8afb-5dcc-4e0b-b0b3-52df53cb6ee1" name="Blobs" type="Collection">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="90" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Name" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="b4cde434-2d94-4dad-a899-91f132927f8e" name="Container" type="Data">
+    <subsheetid>ba6d0ba3-38df-49d1-acb9-dfaa1bad77ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4a50a8b1-386e-45f4-a222-b1a59440ccdb" name="Upload Blob to Container" type="SubSheetInfo">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="f050cc9f-2491-4405-baaa-11432fea57fc" name="Start" type="Start">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Name" stage="Container Name" />
+      <input type="text" name="File Name" stage="File Name" />
+      <input type="binary" name="File" stage="File" />
+    </inputs>
+    <onsuccess>c2f5c935-76b9-41c7-bc3b-a33af2633c40</onsuccess>
+  </stage>
+  <stage stageid="3fa73013-a85b-472c-9c0f-7921de35c195" name="End" type="End">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="a6627aa9-cc44-4723-8221-78796878d9a1" name="Container Name" type="Data">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a7d6d86a-2b7c-41a5-8666-e56723c367e4" name="Azure Storage Account Name" type="Data">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cea2ac7d-47f7-41c6-b876-41ebb9593b83" name="Azure Storage Account Key" type="Data">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="195" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8b1594d8-2ad1-42e9-9cc8-11287b76c913" name="Azure Variables" type="Block">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-285" y="120" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="ba08f652-814f-4e21-9798-9bd15286f843" name="Action Variables" type="Block">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c2f5c935-76b9-41c7-bc3b-a33af2633c40" name="Azure Upload File Code" type="Code">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container Name]" />
+      <input type="text" name="fileName" expr="[File Name]" />
+      <input type="binary" name="file" expr="[File]" />
+    </inputs>
+    <onsuccess>3fa73013-a85b-472c-9c0f-7921de35c195</onsuccess>
+    <code><![CDATA[try
+{
+	//Build Connection String
+	string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+	
+	//Get a reference to the storage account
+	CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+	CloudBlobClient bc = sa.CreateCloudBlobClient();
+	
+	//Get a reference to a sample container.
+	CloudBlobContainer container = bc.GetContainerReference(containerName);
+	
+	container.CreateIfNotExists();
+	
+	CloudBlockBlob b = container.GetBlockBlobReference(fileName);
+	
+	b.UploadFromStream(new MemoryStream(file));
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}
+]]></code>
+  </stage>
+  <stage stageid="a54db51a-195e-4c90-bc4e-d87ffcb1c6ad" name="File" type="Data">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="75" w="90" h="30" />
+    <datatype>binary</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e3f1fd5a-e140-42b4-9bfc-df27ffe843f6" name="File Name" type="Data">
+    <subsheetid>2795c58e-4a1a-43a2-aa13-c15169fd84ac</subsheetid>
+    <loginhibit />
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="adbaa233-7a1f-426e-a798-0d94f66e7243" name="Delete Blob from Container" type="SubSheetInfo">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="fff814d4-60e0-420e-be78-1c32fa7ce3fd" name="Start" type="Start">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Name" stage="Container Name" />
+      <input type="text" name="Blob Name" stage="Blob Name" />
+    </inputs>
+    <onsuccess>e76be88d-2a93-4b3b-a320-5ccf3dfb6372</onsuccess>
+  </stage>
+  <stage stageid="0af6986d-e5f8-4140-b699-ac2539a157bf" name="End" type="End">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="b9374534-f7f0-486e-af74-4dccfa5d10c2" name="Container Name" type="Data">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3934f4d3-117f-429c-b065-5d9d1e0488b9" name="Azure Storage Account Name" type="Data">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-195" y="105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="fc7484bf-a007-447b-9ba5-58e1a6620bf3" name="Azure Storage Account Key" type="Data">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="21121da2-7a61-44a3-8041-5c94d21e30b2" name="Azure Variables" type="Block">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-285" y="75" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="66babb3f-7b13-4e50-9e09-be7e64bab3da" name="Action Variables" type="Block">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e76be88d-2a93-4b3b-a320-5ccf3dfb6372" name="Azure Delete Blob Code" type="Code">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container Name]" />
+      <input type="text" name="blobName" expr="[Blob Name]" />
+    </inputs>
+    <onsuccess>0af6986d-e5f8-4140-b699-ac2539a157bf</onsuccess>
+    <code><![CDATA[try
+{ 
+    //Build Connection String
+    string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+
+    //Get a reference to the storage account
+    CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+    CloudBlobClient bc = sa.CreateCloudBlobClient();
+
+    //Get a reference to a sample container.
+    CloudBlobContainer container = bc.GetContainerReference(containerName);
+
+    CloudBlob b = container.GetBlobReference(blobName);
+
+    b.DeleteIfExists();
+    
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="46995c4b-0f2f-4788-9a33-8c14566a4dbb" name="Blob Name" type="Data">
+    <subsheetid>200a93a7-ea64-4b0d-9474-e6f9b6f46145</subsheetid>
+    <loginhibit />
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="efe788a4-3f67-4861-9840-b8790de1adf0" name="Blob Exists?" type="SubSheetInfo">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="f9979061-475b-47aa-9609-9c091e72b823" name="Start" type="Start">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="Azure Storage Account Key" stage="Azure Storage Account Key" />
+      <input type="text" name="Azure Storage Account Name" stage="Azure Storage Account Name" />
+      <input type="text" name="Container Name" stage="Container Name" />
+      <input type="text" name="Blob Name" stage="Blob Name" />
+    </inputs>
+    <onsuccess>b6d708af-7c5e-4e33-a3cc-61a117a35754</onsuccess>
+  </stage>
+  <stage stageid="2b14a325-234b-41b3-8b11-c29d7ad9d5fd" name="End" type="End">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="flag" name="Blob Exists?" stage="Blob Exists?" />
+    </outputs>
+  </stage>
+  <stage stageid="ac62bc83-5d3b-49de-981f-860750767e61" name="Container Name" type="Data">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="172e388b-e985-493f-acd1-3a39b354dabf" name="Azure Storage Account Name" type="Data">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-195" y="150" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">azurestoragetest</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="55fd4b4a-a88c-43f9-8f97-823b6d77617c" name="Azure Storage Account Key" type="Data">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-195" y="195" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="acf8e6f0-e88c-4d2a-9f8f-c3aa7c9a0fa4" name="Azure Variables" type="Block">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-285" y="120" w="180" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d920fe21-3ae0-44e7-b2ff-897f2a0a1372" name="Action Variables" type="Block">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-285" y="-45" w="180" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b6d708af-7c5e-4e33-a3cc-61a117a35754" name="Azure Blob Exists Code" type="Code">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="120" h="60" />
+    <inputs>
+      <input type="text" name="AZStorageAcctKey" expr="[Azure Storage Account Key]" />
+      <input type="text" name="AZStorageAcctName" expr="[Azure Storage Account Name]" />
+      <input type="text" name="containerName" expr="[Container Name]" />
+      <input type="text" name="blobName" expr="[Blob Name]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="exists" stage="Blob Exists?" />
+    </outputs>
+    <onsuccess>2b14a325-234b-41b3-8b11-c29d7ad9d5fd</onsuccess>
+    <code><![CDATA[try
+{
+    //Build Connection String
+    string connectionString = $"DefaultEndpointsProtocol=https;AccountName={AZStorageAcctName};AccountKey={AZStorageAcctKey};EndpointSuffix=core.windows.net";
+
+    //Get a reference to the storage account
+    CloudStorageAccount sa = CloudStorageAccount.Parse(connectionString);
+    CloudBlobClient bc = sa.CreateCloudBlobClient();
+
+    //Get a reference to a sample container.
+    CloudBlobContainer container = bc.GetContainerReference(containerName);
+
+    CloudBlob b = container.GetBlobReference(blobName);
+
+    exists = b.Exists();
+
+}
+catch (StorageException e)
+{
+    throw new Exception($"A new exception - HTTP Error Code {e.RequestInformation.HttpStatusCode}: {e.RequestInformation.ErrorCode}. Message: {e.Message}");
+}]]></code>
+  </stage>
+  <stage stageid="d1d2307e-74af-44bc-ab89-f3064de0c8b2" name="Blob Exists?" type="Data">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-195" y="75" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="418feb9b-53c1-4e7d-92de-f9c136e0c6cb" name="Blob Name" type="Data">
+    <subsheetid>3f21cefc-09a6-41fe-b9f7-000010d80d33</subsheetid>
+    <loginhibit />
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

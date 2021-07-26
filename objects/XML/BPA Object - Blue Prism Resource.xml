@@ -1,0 +1,260 @@
+﻿<process name="Blue Prism Resource" version="1.0" bpversion="6.8.0.23415" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="c0f727bc-cfbd-40d9-87e0-8e309b2a6126">
+  <appdef>
+    <element name="Application Root">
+      <id>7916195d-b94d-4371-8597-e5d5745decae</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="dd402654-7d33-44dd-8c78-cb542778067b" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="c636e608-94bf-479b-b8e3-282db78d596c" type="Normal" published="False">
+    <name>Call Resource Endpoints</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-5</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="43492b67-83e2-41b6-8536-4d69dc350868" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>37706fc7-8978-45c4-8a82-0dddedf97bd9</onsuccess>
+  </stage>
+  <stage stageid="37706fc7-8978-45c4-8a82-0dddedf97bd9" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="02b470c7-1dbc-49bf-b01e-5160c037cc40" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="f071138e-c352-4ad7-9b26-e7d9c175ad32" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>dd402654-7d33-44dd-8c78-cb542778067b</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="5ed5b8a7-c435-4344-b209-df2837d054dc" name="Start" type="Start">
+    <subsheetid>dd402654-7d33-44dd-8c78-cb542778067b</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>960f2838-189d-4dfc-8e22-5361a918df1b</onsuccess>
+  </stage>
+  <stage stageid="960f2838-189d-4dfc-8e22-5361a918df1b" name="End" type="End">
+    <subsheetid>dd402654-7d33-44dd-8c78-cb542778067b</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="30e476f1-b3d1-465f-9c1c-ec76a055b0df" name="Call Resource Endpoints" type="SubSheetInfo">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="e8688781-74c8-41d9-b65c-02897a251bee" name="Start" type="Start">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="-135" />
+    <inputs>
+      <input type="collection" name="Resources" stage="Resources" />
+    </inputs>
+    <onsuccess>6435c19c-a6bc-44e7-bfcd-b6b3c71eea60</onsuccess>
+  </stage>
+  <stage stageid="9b47ce87-e072-4647-b2e8-20686ce6e8cb" name="End" type="End">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="345" />
+    <outputs>
+      <output type="collection" name="Resources" stage="Resources" />
+    </outputs>
+  </stage>
+  <stage stageid="447ded9c-71ad-4fda-93e7-a24d5e53c4b9" name="Note1" type="Note">
+    <subsheetid>dd402654-7d33-44dd-8c78-cb542778067b</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="12c18e39-900f-4dc1-b07c-6f283962aeb7" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="506f61a8-c3ae-432b-bb83-064a43ef28a3" name="Resources" type="Collection">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Hostname" type="text" />
+      <field name="Port" type="text" />
+      <field name="Busy" type="flag" />
+      <field name="Processes Running" type="number" />
+    </collectioninfo>
+    <initialvalue>
+      <row>
+        <field name="Hostname" type="text" value="localhost" />
+        <field name="Port" type="text" value="8181" />
+        <field name="Busy" type="flag" value="" />
+        <field name="Processes Running" type="number" value="" />
+      </row>
+    </initialvalue>
+  </stage>
+  <stage stageid="551a1df6-a037-4a9c-8da5-856df41b7175" name="Busy HTTP Request" type="Action">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="text" name="Address URL" friendlyname="Address URL" narrative="The URL to send the HTTP data to" expr="&quot;http://&quot; &amp; [Resources.Hostname] &amp; &quot;:&quot; &amp; [Resources.Port] &amp; &quot;/busy&quot;" />
+      <input type="text" name="Body" friendlyname="Body" narrative="The body text of the HTTP request" expr="" />
+      <input type="flag" name="Use Proxy" friendlyname="Use Proxy" narrative="Set true if you need to use a proxy" expr="" />
+      <input type="text" name="Content Type" friendlyname="Content Type" narrative="The content type of the HTTP request." expr="" />
+      <input type="text" name="Method" friendlyname="Method" narrative="The method of the HTTP request." expr="&quot;GET&quot;" />
+      <input type="text" name="Proxy URL" friendlyname="Proxy URL" narrative="OPTIONAL: The proxy url" expr="" />
+      <input type="text" name="Proxy Username" friendlyname="Proxy Username" narrative="OPTIONAL: The proxy username" expr="" />
+      <input type="password" name="Proxy Password" friendlyname="Proxy Password" narrative="OPTIONAL: The proxy password" expr="" />
+      <input type="collection" name="Headers" friendlyname="Headers" narrative="OPTIONAL: Headers" expr="" />
+      <input type="text" name="Accept" friendlyname="Accept" narrative="OPTIONAL: Accept" expr="" />
+      <input type="text" name="Username" friendlyname="Username" narrative="OPTIONAL: Basic Authentication username" expr="" />
+      <input type="password" name="Password" friendlyname="Password" narrative="OPTIONAL: Basic Authenction password" expr="" />
+      <input type="text" name="Certificate ID" friendlyname="Certificate ID" narrative="OPTIONAL: The id of the client authentication certificate" expr="" />
+      <input type="flag" name="Force Pre Authorization" friendlyname="Force Pre Authorization" narrative="OPTIONAL: Force the request to send the authorization headers" expr="" />
+      <input type="flag" name="File URL" friendlyname="File URL" narrative="OPTIONAL: Is the JSON Body a file instead?" expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Result" friendlyname="Result" narrative="The result from the Post query." stage="Busy" />
+    </outputs>
+    <onsuccess>2ee5f020-e4a1-456c-995e-f23cd56bf904</onsuccess>
+    <resource object="Utility - HTTP" action="HTTP Request" />
+  </stage>
+  <stage stageid="6435c19c-a6bc-44e7-bfcd-b6b3c71eea60" name="Resource Loop" type="LoopStart">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="-75" />
+    <onsuccess>551a1df6-a037-4a9c-8da5-856df41b7175</onsuccess>
+    <groupid>b31fb98d-57ca-47ec-a742-fb8aff227b68</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Resources</loopdata>
+  </stage>
+  <stage stageid="5367e2b6-2475-4a9f-8bad-aa49c6119d14" name="Resource Loop" type="LoopEnd">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="285" />
+    <onsuccess>9b47ce87-e072-4647-b2e8-20686ce6e8cb</onsuccess>
+    <groupid>b31fb98d-57ca-47ec-a742-fb8aff227b68</groupid>
+  </stage>
+  <stage stageid="14a00596-ce21-431c-88dd-40ec3bb9f020" name="Busy" type="Data">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <display x="-195" y="30" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f23b411-48c1-4adf-be22-660ec22fba80" name="Status" type="Data">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <display x="-195" y="75" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ebde9aa9-5803-4eab-8bbe-f199634662a7" name="Status HTTP Request" type="Action">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="165" />
+    <inputs>
+      <input type="text" name="Address URL" friendlyname="Address URL" narrative="The URL to send the HTTP data to" expr="&quot;http://&quot; &amp; [Resources.Hostname] &amp; &quot;:&quot; &amp; [Resources.Port] &amp; &quot;/status&quot;" />
+      <input type="text" name="Body" friendlyname="Body" narrative="The body text of the HTTP request" expr="" />
+      <input type="flag" name="Use Proxy" friendlyname="Use Proxy" narrative="Set true if you need to use a proxy" expr="" />
+      <input type="text" name="Content Type" friendlyname="Content Type" narrative="The content type of the HTTP request." expr="" />
+      <input type="text" name="Method" friendlyname="Method" narrative="The method of the HTTP request." expr="&quot;GET&quot;" />
+      <input type="text" name="Proxy URL" friendlyname="Proxy URL" narrative="OPTIONAL: The proxy url" expr="" />
+      <input type="text" name="Proxy Username" friendlyname="Proxy Username" narrative="OPTIONAL: The proxy username" expr="" />
+      <input type="password" name="Proxy Password" friendlyname="Proxy Password" narrative="OPTIONAL: The proxy password" expr="" />
+      <input type="collection" name="Headers" friendlyname="Headers" narrative="OPTIONAL: Headers" expr="" />
+      <input type="text" name="Accept" friendlyname="Accept" narrative="OPTIONAL: Accept" expr="" />
+      <input type="text" name="Username" friendlyname="Username" narrative="OPTIONAL: Basic Authentication username" expr="" />
+      <input type="password" name="Password" friendlyname="Password" narrative="OPTIONAL: Basic Authenction password" expr="" />
+      <input type="text" name="Certificate ID" friendlyname="Certificate ID" narrative="OPTIONAL: The id of the client authentication certificate" expr="" />
+      <input type="flag" name="Force Pre Authorization" friendlyname="Force Pre Authorization" narrative="OPTIONAL: Force the request to send the authorization headers" expr="" />
+      <input type="flag" name="File URL" friendlyname="File URL" narrative="OPTIONAL: Is the JSON Body a file instead?" expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Result" friendlyname="Result" narrative="The result from the Post query." stage="Status" />
+    </outputs>
+    <onsuccess>dbc93b51-68cf-4346-8f05-a0402bd48790</onsuccess>
+    <resource object="Utility - HTTP" action="HTTP Request" />
+  </stage>
+  <stage stageid="dbc93b51-68cf-4346-8f05-a0402bd48790" name="Parse Running Resources" type="Calculation">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="225" />
+    <onsuccess>5367e2b6-2475-4a9f-8bad-aa49c6119d14</onsuccess>
+    <calculation expression="ToNumber(Trim(Right([Status], Len([Status]) - InStr([Status], &quot;:&quot;))))" stage="Resources.Processes Running" />
+  </stage>
+  <stage stageid="2ee5f020-e4a1-456c-995e-f23cd56bf904" name="Is Busy?" type="Decision">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="45" />
+    <decision expression="Lower(Trim([Busy])) = &quot;yes&quot;" />
+    <ontrue>7fd8333e-ceb9-4282-999c-d78abbc9e5aa</ontrue>
+    <onfalse>f9436366-6b50-4f55-aa90-376f895f51ac</onfalse>
+  </stage>
+  <stage stageid="f9436366-6b50-4f55-aa90-376f895f51ac" name="Set Busy to False" type="Calculation">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="105" y="45" />
+    <onsuccess>da9cc179-db75-4d67-a381-d78344492e65</onsuccess>
+    <calculation expression="False" stage="Resources.Busy" />
+  </stage>
+  <stage stageid="7fd8333e-ceb9-4282-999c-d78abbc9e5aa" name="Set Busy to True" type="Calculation">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="15" y="105" />
+    <onsuccess>ebde9aa9-5803-4eab-8bbe-f199634662a7</onsuccess>
+    <calculation expression="True" stage="Resources.Busy" />
+  </stage>
+  <stage stageid="da9cc179-db75-4d67-a381-d78344492e65" name="Anchor1" type="Anchor">
+    <subsheetid>c636e608-94bf-479b-b8e3-282db78d596c</subsheetid>
+    <loginhibit />
+    <display x="105" y="165" w="10" h="10" />
+    <onsuccess>ebde9aa9-5803-4eab-8bbe-f199634662a7</onsuccess>
+  </stage>
+</process>
