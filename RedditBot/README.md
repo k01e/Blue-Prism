@@ -14,11 +14,11 @@ https://code.visualstudio.com/docs/python/python-tutorial
 
 
 # Setup #
-Reddit 
+**Reddit**
 
 Create or use existing Reddit User Acct. 
 	
-Script 
+**Python**
 
 We’ll use the PRAW python library to make working with Reddit’s API easier. We’re also using ZEEP to interface with Blue Prism’s SOAP APIs.  Install Python, PIP, PRAW, and ZEEP.
 
@@ -30,18 +30,18 @@ We’ll use the PRAW python library to make working with Reddit’s API easier. 
 
 - For SOAP install ZEEP - https://docs.python-zeep.org/en/master/
 
-Blue Prism 
+**Blue Prism** 
 
-	Import the Blue Prism release “20210210 Insert into BP Queue.bprelease” into Blue Prism. This will import the Blue Prism process and the Blue Prism Reddit queue.
+- Import the Blue Prism release “20210210 Insert into BP Queue.bprelease” into Blue Prism. This will import the Blue Prism process and the Blue Prism Reddit queue.
 
-	Expose the Blue Prism process.
+- Expose the Blue Prism process.
 
-	We’ll use the Blue Prism wsdl to help build the python script connection.
+- We’ll use the Blue Prism wsdl to help build the python script connection.
 
 # Help #
 
-	Python - https://hackernoon.com/4-ways-to-manage-the-configuration-in-python-4623049e841b
+- Python: https://hackernoon.com/4-ways-to-manage-the-configuration-in-python-4623049e841b
 	
-	HTTP Authentication for ZEEP - https://docs.python-zeep.org/en/master/transport.html
+- HTTP Authentication for ZEEP: https://docs.python-zeep.org/en/master/transport.html
 
  
